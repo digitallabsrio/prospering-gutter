@@ -1,0 +1,9 @@
+az container create \
+    --resource-group $RESOURCE_GROUP \
+    --name devops-toolkit \
+    --location $REGION \
+    --image $IMAGE \
+    --dns-name-label $SUBDOMAIN \
+    --ports 80 \
+    --registry-username $ACR_USER \
+    --registry-password $ACR_PASS

@@ -1,0 +1,41 @@
+####################
+# Create a Cluster #
+####################
+
+# Only if you did not yet clone that repository
+cd devops-catalog-code
+
+
+cd terraform-gke/simple
+
+# Only if you are not already logged in
+gcloud auth application-default login
+
+gcloud container get-server-config \
+    --region us-east1
+
+# Replace `[...]` with a valid master version from the previous output.
+# It must be at least 1.16 or newer (e.g., 1.16.13-gke.1).
+export K8S_VERSION=[...]
+
+terraform init
+
+terraform apply \
+    --var k8s_version=$K8S_VERSION
+
+export KUBECONFIG=$PWD/kubeconfig
+
+kubectl get nodes
+
+cd ../../..
+
+#######################
+# Destroy The Cluster #
+#######################
+
+cd devops-catalog-code/terraform-gke/simple
+
+terraform destroy \
+    --var k8s_version=$K8S_VERSION
+
+cd ../../..

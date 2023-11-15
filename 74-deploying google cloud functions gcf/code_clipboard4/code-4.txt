@@ -1,0 +1,4 @@
+...
+Deployed functions
+first
+  https://us-east1-doc-20200619182405.cloudfunctions.net/my-service-dev-main

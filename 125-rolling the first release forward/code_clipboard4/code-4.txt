@@ -1,0 +1,8 @@
+kubectl argo rollouts \
+    --namespace devops-toolkit \
+    promote devops-toolkit-devops-toolkit
+
+kubectl argo rollouts \
+    --namespace devops-toolkit \
+    get rollout devops-toolkit-devops-toolkit \
+    --watch

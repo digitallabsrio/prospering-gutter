@@ -1,0 +1,2 @@
+NAME      NAMESPACE  REVISION UPDATED       STATUS   CHART           APP VERSION
+go-demo-9 production 2        2020-04-21... deployed go-demo-9-0.0.2 0.0.2      

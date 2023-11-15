@@ -1,0 +1,24 @@
+...
+{
+      "default": null,
+      "isPreview": null,
+      "orchestratorType": "Kubernetes",
+      "orchestratorVersion": "1.24.6",
+      "upgrades": [
+        {
+          "isPreview": true,
+          "orchestratorType": "Kubernetes",
+          "orchestratorVersion": "1.25.2"
+        }
+      ]
+    },
+    {
+      "default": null,
+      "isPreview": true,
+      "orchestratorType": "Kubernetes",
+      "orchestratorVersion": "1.25.2",
+      "upgrades": null
+    }
+  ],
+  "type": "Microsoft.ContainerService/locations/orchestrators"
+}

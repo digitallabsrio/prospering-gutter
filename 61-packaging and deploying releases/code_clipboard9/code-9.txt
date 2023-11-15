@@ -1,0 +1,5 @@
+helm --namespace production \
+    upgrade --install \
+    go-demo-9 go-demo-9-0.0.2.tgz \
+    --wait \
+    --timeout 10m

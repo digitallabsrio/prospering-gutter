@@ -1,0 +1,3 @@
+NAME             CAPACITY ACCESS MODES RECLAIM POLICY STATUS CLAIM                  STORAGECLASS REASON AGE
+pvc-86dc84f4-... 8Gi      RWO          Delete         Bound  production/datadir-... standard            25m
+pvc-f834886d-... 8Gi      RWO          Delete         Bound  production/datadir-... standard            25m

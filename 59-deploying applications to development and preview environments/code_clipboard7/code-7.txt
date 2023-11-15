@@ -1,0 +1,2 @@
+curl -H "Host: $ADDR" \
+    "http://$INGRESS_HOST"

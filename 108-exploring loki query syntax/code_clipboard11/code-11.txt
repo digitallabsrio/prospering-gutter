@@ -1,0 +1,6 @@
+export ADDR=http://go-demo-9-go-demo-9.production/demo/random-error
+
+kubectl run siege \\
+    --image yokogawa/siege \\
+    -it --rm \\
+    -- --concurrent 10 --time 30S "$ADDR"

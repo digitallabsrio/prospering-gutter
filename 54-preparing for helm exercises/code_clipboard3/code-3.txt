@@ -1,0 +1,82 @@
+####################
+# Create a Cluster #
+####################
+
+# Make sure that you are inside the local copy of the devops-catalog-code repository
+
+cp terraform-eks/creds \
+    terraform-eks/minimal/creds
+
+cd terraform-eks/minimal
+
+source creds
+
+terraform init
+
+# You can skip this step if this is not the first time you are using this Gist
+# Replace `[...]` with the name of the bucket you are already using for storage.
+export TF_VAR_state_bucket=[...]
+
+# You can skip this step if this is not the first time you are using this Gist.
+# We need to change the hard-coded name of the bucket to the unique value stored in the environment variable `BUCKET_NAME`.
+cat main.tf \
+  | sed -e "s@bucket = \"devops-catalog\"@bucket = \"$TF_VAR_state_bucket\"@g" \
+  | tee main.tf
+
+# The list of the supported versions is in https://docs.aws.amazon.com/eks/latest/userguide/platform-versions.html
+# Replace `[...]` with a valid master version obtained from that page
+# Remember that only major and minor versions should be used (e.g., 1.15)
+export K8S_VERSION=[...]
+
+# The list of the AMI versions is in https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html
+# Replace `[...]` with a valid master version obtained from the *AMI VERSION* column from that page
+
+export RELEASE_VERSION=[...] # e.g., 1.15.11-20200423
+
+terraform apply \
+    --var k8s_version=$K8S_VERSION \
+    --var release_version=$RELEASE_VERSION
+
+export KUBECONFIG=$PWD/kubeconfig
+
+aws eks update-kubeconfig \
+    --name \
+    $(terraform output --raw cluster_name) \
+    --region \
+    $(terraform output --raw region)
+
+kubectl get nodes
+
+cd ../..
+
+#############################
+# Deploy Ingress Controller #
+#############################
+
+kubectl apply \
+    --filename https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.35.0/deploy/static/provider/aws/deploy.yaml
+
+export INGRESS_HOST=$(kubectl \
+    --namespace ingress-nginx \
+    get svc ingress-nginx-controller \
+    --output jsonpath="{.status.loadBalancer.ingress[0].hostname}")
+
+echo $INGRESS_HOST
+
+# Repeat the `export` command if the output is empty
+
+#######################
+# Destroy The Cluster #
+#######################
+
+# This will delete the NBL. Otherwise, it would prevent deletion of some of the resources controlled by Terraform
+kubectl delete \
+    --filename https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.35.0/deploy/static/provider/aws/deploy.yaml
+
+cd terraform-eks/minimal
+
+terraform destroy \
+    --var k8s_version=$K8S_VERSION \
+    --var release_version=$RELEASE_VERSION
+
+cd ../..

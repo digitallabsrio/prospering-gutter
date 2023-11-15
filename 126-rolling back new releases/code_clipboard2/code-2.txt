@@ -1,0 +1,3 @@
+kubectl argo rollouts \
+    --namespace devops-toolkit \
+    abort devops-toolkit-devops-toolkit

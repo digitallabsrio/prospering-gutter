@@ -1,0 +1,8 @@
+helm upgrade --install \
+    devops-toolkit helm \
+    --namespace devops-toolkit \
+    --create-namespace \
+    --values rollout/values-pause-x2.yaml \ 
+    --set ingress.host=devops-toolkit.$ISTIO_HOST.nip.io \
+    --set image.tag=2.6.2 \
+    --wait

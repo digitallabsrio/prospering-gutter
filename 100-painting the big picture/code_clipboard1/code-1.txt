@@ -1,0 +1,2 @@
+kubectl label namespace production \
+    istio-injection=enabled

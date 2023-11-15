@@ -1,0 +1,3 @@
+serverless create \
+    --template google-nodejs \
+    --path gcp-function

@@ -1,0 +1,2 @@
+curl -H "Host: staging.go-demo-9.acme.com" \
+    "http://$INGRESS_HOST"

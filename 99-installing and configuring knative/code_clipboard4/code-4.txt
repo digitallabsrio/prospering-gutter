@@ -1,0 +1,2 @@
+kubectl apply \
+    --filename https://github.com/knative/net-istio/releases/download/knative-v1.8.1/net-istio.yaml

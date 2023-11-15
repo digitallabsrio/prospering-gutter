@@ -1,0 +1,4 @@
+gcloud projects \
+   add-iam-policy-binding $PROJECT_ID \
+  --member serviceAccount:devops-catalog@$PROJECT_ID.iam.gserviceaccount.com \
+   --role roles/owner

@@ -1,0 +1,1 @@
+az aks get-versions --location eastus

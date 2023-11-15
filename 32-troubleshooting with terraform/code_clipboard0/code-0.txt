@@ -1,0 +1,5 @@
+aws iam list-attached-role-policies --role-name [rollname...]
+
+aws iam detach-role-policy --role-name [rollname...] --policy-arn [policy arn...]
+
+aws iam delete-role --role-name [rollname...]

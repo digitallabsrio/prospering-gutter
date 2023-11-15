@@ -1,0 +1,8 @@
+Name:            devops-toolkit-devops-toolkit
+Namespace:       devops-toolkit
+Status:          ॥ Paused
+Strategy:        Canary
+  Step:          3/8
+  SetWeight:     40
+  ActualWeight:  40
+...

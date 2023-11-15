@@ -1,0 +1,3 @@
+serverless invoke \
+    --function hello \
+    --data '{"name": "Viktor"}'

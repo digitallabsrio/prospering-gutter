@@ -1,0 +1,18 @@
+... 
+Terraform will per form the following actions:
+
+  # google_storage_bucket.state will be created
+  + resource "google_storage_bucket" "state" {
+    + bucket_policy_only = (known after apply)
+    + force_destroy = false
+    + id  = (known after apply)
+    + location = "US-EAST1"
+    + name = "devops-catalog"
+    + project = "devops-catalog"
+    + self_link = (known after apply)
+    + storage_class = "NEARLINE"
+    + url = (known after apply)
+}
+Plan: 1 to add, 0 to change, 0 to destroy.
+Do you want to perform these actions? Terraform will perform the actions described Only 'yes' will be accepted to approve.
+  Enter a value: yes

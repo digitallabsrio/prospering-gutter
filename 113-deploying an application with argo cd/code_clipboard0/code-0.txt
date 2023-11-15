@@ -1,0 +1,3 @@
+deployment.yaml
+ing.yaml
+service.yaml

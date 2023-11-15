@@ -1,0 +1,3 @@
+serverless remove
+cd ..
+rm -rf gcp-function

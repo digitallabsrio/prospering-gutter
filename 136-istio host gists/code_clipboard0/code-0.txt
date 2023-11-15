@@ -1,0 +1,26 @@
+####################
+# Create a Cluster #
+####################
+
+# Make sure that Kubernetes is enabled
+
+# Make sure that you do NOT have Ingress set up.
+# If you do, please uninstall it since it would conflict with Istio Gateway Service exposed on port 80.
+
+# Tested with 4 CPUs and 5GB RAM
+
+#################
+# Install Istio #
+#################
+
+istioctl install --skip-confirmation
+
+export ISTIO_HOST=127.0.0.1
+
+#######################
+# Destroy The Cluster #
+#######################
+
+# Open Preferences, select the Kubernetes tab, and click the Reset Kubernetes Cluster button
+
+# Quit Docker Desktop

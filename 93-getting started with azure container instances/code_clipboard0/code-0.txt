@@ -1,0 +1,29 @@
+# Create #
+##########
+
+# Only if you did not yet clone that repository
+cd devops-catalog-code
+
+cd terraform-aci
+
+az login
+
+terraform init
+
+terraform apply
+
+export REGISTRY_NAME=$(\
+    terraform output --raw registry_name)
+
+export RESOURCE_GROUP=$(\
+    terraform output --raw resource_group)
+
+export REGION=$(terraform output --raw region)
+
+###########
+# Destroy #
+###########
+
+terraform destroy
+
+cd ../../

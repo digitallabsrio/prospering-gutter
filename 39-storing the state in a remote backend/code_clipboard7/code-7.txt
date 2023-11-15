@@ -1,0 +1,25 @@
+[
+  {
+    "deleted": null,
+    "encryptionScope": {
+      "defaultEncryptionScope": "$account-encryption-key",
+      "preventEncryptionScopeOverride": false
+    },
+    "immutableStorageWithVersioningEnabled": false,
+    "metadata": null,
+    "name": “devopscatalog”,
+    "properties": {
+      "etag": "\"0x8DAD133CC6B3FF1\"",
+      "hasImmutabilityPolicy": false,
+      "hasLegalHold": false,
+      "lastModified": "2022-11-28T11:29:22+00:00",
+      "lease": {
+        "duration": null,
+        "state": "available",
+        "status": "unlocked"
+      },
+      "publicAccess": "blob"
+    },
+    "version": null
+  }
+]

@@ -1,0 +1,4 @@
+NAME                                STATUS   ROLES   AGE   VERSION
+aks-docatalog-37661550-vmss000000   Ready    agent   22m   v1.24.6
+aks-docatalog-37661550-vmss000001   Ready    agent   22m   v1.24.6
+aks-docatalog-37661550-vmss000002   Ready    agent   22m   v1.24.6

@@ -1,0 +1,7 @@
+...
+Apply complete! Resources: 10 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+cluster_name = devops-catalog
+region = us-east-1

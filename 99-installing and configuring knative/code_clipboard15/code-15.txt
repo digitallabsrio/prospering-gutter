@@ -1,0 +1,7 @@
+# Only if GKE or AKS
+export INGRESS_IP=$(kubectl --namespace istio-system \
+    get service istio-ingressgateway \
+    --output jsonpath='{.status.loadBalancer.ingress[0].ip}')
+
+# Only if GKE or AKS
+export INGRESS_HOST=$INGRESS_IP.nip.io

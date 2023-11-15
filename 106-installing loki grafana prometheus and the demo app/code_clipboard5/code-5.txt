@@ -1,0 +1,13 @@
+helm repo add grafana \
+    https://grafana.github.io/helm-charts
+
+helm repo update
+
+helm upgrade --install \
+    grafana grafana/grafana \
+    --namespace monitoring \
+    --create-namespace \
+    --version 6.21.2 \
+    --values grafana-loki.yaml \
+    --set ingress.hosts="{grafana.$INGRESS_HOST.nip.io}" \
+    --wait

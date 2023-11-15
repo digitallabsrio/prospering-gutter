@@ -1,0 +1,4 @@
+NAME             STATUS ROLES  AGE   VERSION
+ip-10-0-0-146... Ready  <none> 2m37s v1.15.11-eks-1f0ca9
+ip-10-0-1-138... Ready  <none> 2m31s v1.15.11-eks-1f0ca9
+ip-10-0-2-65...  Ready  <none> 2m40s v1.15.11-eks-1f0ca9

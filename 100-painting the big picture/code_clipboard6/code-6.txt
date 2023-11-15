@@ -1,0 +1,2 @@
+curl -H "Host: devops-toolkit.production.example.com" \
+    http://$INGRESS_HOST

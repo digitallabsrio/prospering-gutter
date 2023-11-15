@@ -1,0 +1,7 @@
+NAME                                    READY   STATUS    RESTARTS   AGE
+istio-ingressgateway-568745d7d8-jwvxp   1/1     Running   0          28m
+istio-ingressgateway-568745d7d8-m9j5b   1/1     Running   0          28m
+istio-ingressgateway-568745d7d8-sfrrv   1/1     Running   0          28m
+istiod-676675849b-qnnbf                 1/1     Running   0          28m
+istiod-676675849b-r5t9v                 0/1     Pending   0          27m
+istiod-676675849b-v68bt                 1/1     Running   0          27m

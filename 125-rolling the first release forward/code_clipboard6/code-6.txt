@@ -1,0 +1,4 @@
+for i in {1..100}; do
+    curl -s http://devops-toolkit.$ISTIO_HOST.nip.io \
+        | grep -i "catalog, patterns, and blueprints"
+done | wc -l

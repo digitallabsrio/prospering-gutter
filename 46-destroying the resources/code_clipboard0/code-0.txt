@@ -1,0 +1,3 @@
+terraform destroy \
+    --var k8s_version=$K8S_VERSION \
+    --target azurerm_kubernetes_cluster.primary

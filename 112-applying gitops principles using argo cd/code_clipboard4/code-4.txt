@@ -1,0 +1,5 @@
+export PASS=$(kubectl --namespace argocd \
+    get pods \
+    --selector app.kubernetes.io/name=argocd-server \
+    --output name \
+    | cut -d'/' -f 2)

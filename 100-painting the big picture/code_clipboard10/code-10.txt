@@ -1,0 +1,1 @@
+open http://devops-toolkit.production.$INGRESS_HOST

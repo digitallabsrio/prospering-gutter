@@ -1,0 +1,7 @@
+sudo apt-mark hold libc6
+
+sudo apt -y --fix-broken install
+
+sudo apt update
+
+sudo apt -y full-upgrade

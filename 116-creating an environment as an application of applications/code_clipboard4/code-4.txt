@@ -1,0 +1,2 @@
+kubectl --namespace argocd apply \\
+    --filename apps.yaml

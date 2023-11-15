@@ -1,0 +1,26 @@
+##########
+# Create #
+##########
+
+cd devops-catalog-code
+
+git pull
+
+cd terraform-gcr
+
+# Only if you are not already logged in
+gcloud auth application-default login
+
+terraform init
+
+terraform apply
+
+export PROJECT_ID=$(terraform output --raw project_id)
+
+###########
+# Destroy #
+###########
+
+terraform destroy
+
+cd ../../

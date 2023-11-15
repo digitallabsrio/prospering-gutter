@@ -1,0 +1,2 @@
+kubectl --namespace $GH_USER \
+    get pods

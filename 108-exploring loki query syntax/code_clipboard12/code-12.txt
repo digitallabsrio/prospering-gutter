@@ -1,0 +1,11 @@
+helm --namespace monitoring \\
+    delete grafana loki prometheus
+    
+helm --namespace production \\
+    delete go-demo-9
+
+kubectl delete namespace monitoring
+
+kubectl delete namespace production
+
+cd ../../

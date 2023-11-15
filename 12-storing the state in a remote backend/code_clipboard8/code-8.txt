@@ -1,0 +1,20 @@
+# google_storage_bucket.state:
+resource "google_storage_bucket" "state" {
+    default_event_based_hold    = false
+    force_destroy               = false
+    id                          = "tahreem-yasir"
+    labels                      = {
+        "created-by"  = "terraform"
+        "environment" = "development"
+        "owner"       = "vfarcic"
+    }
+    location                    = "US-EAST1"
+    name                        = "tahreem-yasir"
+    project                     = "fatima-stt"
+    public_access_prevention    = "inherited"
+    requester_pays              = false
+    self_link                   = "https://www.googleapis.com/storage/v1/b/tahreem-yasir"
+    storage_class               = "NEARLINE"
+    uniform_bucket_level_access = false
+    url                         = "gs://tahreem-yasir"
+}

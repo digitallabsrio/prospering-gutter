@@ -1,0 +1,8 @@
+google_storage_bucket.state: Refreshing state... [id=tahreem-yasir]
+
+No changes. Your infrastructure matches the configuration.
+
+Terraform has compared your real infrastructure against your configuration and found no differences,
+so no changes are needed.
+
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.

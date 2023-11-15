@@ -1,0 +1,8 @@
+kubectl run siege \
+    --image yokogawa/siege \
+    -it --rm \
+    -- --concurrent 500 --time 60S \
+    --header "Host: devops-toolkit.production.example.com" \
+    "http://$INGRESS_HOST" \
+    && kubectl --namespace production \
+    get pods

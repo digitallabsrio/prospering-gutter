@@ -1,0 +1,63 @@
+
+####################
+# Create a Cluster #
+####################
+
+# Install AWS IAM Authenticator: https://github.com/awsdocs/amazon-eks-user-guide/blob/master/doc_source/install-aws-iam-authenticator.md
+
+# Only if you did not yet clone that repository
+cd devops-catalog-code
+
+
+cd terraform-eks/simple
+
+# Replace `[...]` with your access key ID`
+export AWS_ACCESS_KEY_ID=[...]
+
+# Replace `[...]` with your secret access key
+export AWS_SECRET_ACCESS_KEY=[...]
+
+terraform init
+
+terraform apply
+
+export KUBECONFIG=$PWD/kubeconfig
+
+kubectl get nodes
+
+cd ../../../
+
+#################
+# Install Istio #
+#################
+
+istioctl install --skip-confirmation
+
+export ISTIO_HOSTNAME=$(kubectl \
+    --namespace istio-system \
+    get service istio-ingressgateway \
+    --output jsonpath="{.status.loadBalancer.ingress[0].hostname}")
+
+export ISTIO_HOST=$(\
+    dig +short $ISTIO_HOSTNAME)
+
+echo $ISTIO_HOST
+
+# Repeat the `export` commands if the output is empty
+
+# If the output contains more than one IP, wait for a while longer, and repeat the `export` commands.
+
+# If the output continues having more than one IP, choose one of them and execute `export ISTIO_HOST=[...]` with `[...]` being the selected IP.
+
+#######################
+# Destroy The Cluster #
+#######################
+
+cd devops-catalog-code/terraform-eks/simple
+
+kubectl --namespace istio-system \
+    delete service istio-ingressgateway
+
+terraform destroy
+
+cd ../../../

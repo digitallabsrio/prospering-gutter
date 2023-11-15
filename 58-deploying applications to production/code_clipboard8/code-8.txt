@@ -1,0 +1,2 @@
+NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART           APP VERSION
+go-demo-9       production      2               2022-12-12 05:38:57.627852779 +0000 UTC deployed        go-demo-9-0.0.1 0.0.1  

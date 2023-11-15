@@ -1,0 +1,3 @@
+NAME                                   TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                                              AGE
+service/devops-toolkit-00001           ClusterIP   172.20.188.81   <none>        80/TCP,443/TCP                                       5m23s
+service/devops-toolkit-00001-private   ClusterIP   172.20.150.83   <none>        80/TCP,443/TCP,9090/TCP,9091/TCP,8022/TCP,8012/TCP   5m23s

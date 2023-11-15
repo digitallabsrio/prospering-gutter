@@ -1,0 +1,48 @@
+
+cd devops-catalog-code
+
+cd terraform-ecs-fargate/cluster
+
+# Replace `[...]` with your access key ID
+export AWS_ACCESS_KEY_ID=[...]
+
+# Replace `[...]` with your secret access key
+export AWS_SECRET_ACCESS_KEY=[...]
+
+echo "export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+export AWS_DEFAULT_REGION=us-east-1" \
+    | tee creds
+
+source creds
+
+terraform init
+
+terraform apply
+
+export LB_ARN=$(\
+    terraform output --raw lb_arn)
+
+export SECURITY_GROUP_ID=$(\
+    terraform output --raw security_group_id)
+
+export SUBNET_IDS=$(\
+    terraform output --raw subnet_ids)
+
+export CLUSTER_ID=$(\
+    terraform output --raw cluster_id)
+
+export DNS=$(\
+    terraform output --raw dns)
+
+cd ../../../
+
+###########
+# Destroy #
+###########
+
+cd devops-catalog-code/terraform-ecs-fargate/cluster
+
+terraform destroy
+
+cd ../../../

@@ -1,0 +1,3 @@
+cat apps.yaml \\
+    | sed -e "s@vfarcic@$GH_ORG@g" \\
+    | tee apps.yaml

@@ -1,0 +1,2 @@
+cp files/output.tf .
+cp output/output.tf .

@@ -1,0 +1,1 @@
+open https://console.aws.amazon.com/ecs/home?region=us-east-1

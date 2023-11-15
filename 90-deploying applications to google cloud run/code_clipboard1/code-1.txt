@@ -1,0 +1,4 @@
+gcloud run services list \
+    --region $REGION \
+    --platform managed \
+    --project $PROJECT_ID

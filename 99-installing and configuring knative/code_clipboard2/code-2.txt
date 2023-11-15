@@ -1,0 +1,9 @@
+NAME                                    READY   STATUS    RESTARTS   AGE
+activator-8cb55b8c6-crtgn               1/1     Running   0          24m
+autoscaler-cfd889f9b-xj2jj              1/1     Running   0          24m
+controller-64bc7bd6df-csvt9             1/1     Running   0          24m
+domain-mapping-7877bf8f89-kw6d8         1/1     Running   0          24m
+domainmapping-webhook-c4cc9dc7b-rzx68   1/1     Running   0          24m
+net-istio-controller-6bbdf5689f-lxpgb   1/1     Running   0          22m
+net-istio-webhook-5fff987dc5-q9wdr      1/1     Running   0          22m
+webhook-7b955f5956-45dpf                1/1     Running   0          24m

@@ -1,0 +1,14 @@
+Service Information
+service: aws-function
+stage: dev
+region: us-east-1
+stack: aws-function-dev
+resources: 11
+api keys:
+  None
+endpoints:
+  GET - https://vwnr8n39vb.execute-api.us-east-1.amazonaws.com/dev/hello
+functions:
+  hello: aws-function-dev-hello
+layers:
+  None

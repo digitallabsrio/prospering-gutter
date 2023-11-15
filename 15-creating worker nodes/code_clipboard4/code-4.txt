@@ -1,0 +1,4 @@
+NAME                                              STATUS   ROLES    AGE     VERSION
+gke-devops-catalog-devops-catalog-24ee0a0a-sqsb   Ready    <none>   2m44s   v1.24.6-gke.1500
+gke-devops-catalog-devops-catalog-935e53bf-qwv1   Ready    <none>   2m51s   v1.24.6-gke.1500
+gke-devops-catalog-devops-catalog-d7ca0eb4-w74f   Ready    <none>   2m55s   v1.24.6-gke.1500

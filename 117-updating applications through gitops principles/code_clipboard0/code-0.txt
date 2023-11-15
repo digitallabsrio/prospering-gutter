@@ -1,0 +1,4 @@
+cat helm/templates/devops-toolkit.yaml \
+    | sed -e "s@latest@2.9.17@g" \
+    | sed -e "s@devopstoolkitseries.com@devops-toolkit.$INGRESS_HOST.nip.io@g" \
+    | tee helm/templates/devops-toolkit.yaml

@@ -1,0 +1,7 @@
+cat serverless.yml \
+    | sed -e "s@handler.hello@handler.hello\\
+    events:\\
+      - http:\\
+          path: hello\\
+          method: get@g" \
+    | tee serverless.yml

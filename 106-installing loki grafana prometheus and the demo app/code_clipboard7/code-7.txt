@@ -1,0 +1,13 @@
+NAME                              READY STATUS  RESTARTS AGE
+grafana-...                       1/1   Running 0        2m31s
+loki-0                            1/1   Running 0        5m32s
+loki-promtail-...                 1/1   Running 0        5m32s
+loki-promtail-...                 1/1   Running 0        5m32s
+loki-promtail-...                 1/1   Running 0        5m32s
+prometheus-alertmanager-...       2/2   Running 0        90s
+prometheus-kube-state-metrics-... 1/1   Running 0        90s
+prometheus-node-exporter-...      1/1   Running 0        91s
+prometheus-node-exporter-...      1/1   Running 0        91s
+prometheus-node-exporter-...      1/1   Running 0        91s
+prometheus-pushgateway-...        1/1   Running 0        90s
+prometheus-server-...             2/2   Running 0        90s

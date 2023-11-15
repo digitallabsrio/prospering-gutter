@@ -1,0 +1,62 @@
+####################
+# Create a Cluster #
+####################
+
+# Make sure that you are inside the local copy of the devops-catalog-code repository
+
+cd terraform-aks/minimal
+
+terraform init
+
+az aks get-versions --location eastus
+
+# Replace `[...]` with a valid orchestratorVersion from the previous output
+export K8S_VERSION=[...]
+
+terraform refresh \
+    --var k8s_version=$K8S_VERSION
+
+terraform apply \
+    --var k8s_version=$K8S_VERSION
+
+export KUBECONFIG=$PWD/kubeconfig
+
+az aks get-credentials \
+    --name \
+    $(terraform output --raw cluster_name) \
+    --resource-group \
+    $(terraform output --raw resource_group) \
+    --file \
+    $KUBECONFIG
+
+kubectl get nodes
+
+cd ../..
+
+#############################
+# Deploy Ingress Controller #
+#############################
+
+kubectl apply \
+    --filename https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.0/deploy/static/provider/cloud/deploy.yaml
+
+export INGRESS_HOST=$(kubectl \
+    --namespace ingress-nginx \
+    get svc ingress-nginx-controller \
+    --output jsonpath="{.status.loadBalancer.ingress[0].ip}")
+
+echo $INGRESS_HOST
+
+# Repeat the `export` command if the output is empty
+
+#######################
+# Destroy The Cluster #
+#######################
+
+cd terraform-aks/minimal
+
+terraform destroy \
+    --var k8s_version=$K8S_VERSION \
+    --target azurerm_kubernetes_cluster.primary
+
+cd ../..

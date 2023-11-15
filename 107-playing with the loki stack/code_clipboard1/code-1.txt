@@ -1,0 +1,2 @@
+cat /var/log/go-demo-9-go-demo-9.log \\
+    | grep -v "GET request to /"

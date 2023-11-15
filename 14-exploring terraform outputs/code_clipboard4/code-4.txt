@@ -1,0 +1,9 @@
+export KUBECONFIG=$PWD/kubeconfig
+
+gcloud container clusters \
+    get-credentials \
+    $(terraform output --raw cluster_name) \
+    --project \
+    $(terraform output --raw project_id) \
+    --region \
+    $(terraform output --raw region)

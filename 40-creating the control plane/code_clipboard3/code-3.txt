@@ -1,0 +1,2 @@
+# Please replace [...] with the selected version in the command that follows.
+export K8S_VERSION=[...] #1.24.6

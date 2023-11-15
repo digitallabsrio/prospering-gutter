@@ -1,0 +1,30 @@
+...
+service:azure-function 
+...
+    provider:
+    name: azure
+    region: West US 2
+    runtime: nodejs12.x
+    # os: windows # windows is default, linux is available 
+    # prefix: "sample" # prefix of generated resource name 
+    # subscriptionId: A356AC8C-E310-44F4-BF85-C7F29044AF99 
+    # stage: dev
+    # type: premium # premium azure functions
+...
+functions: 
+    hello:
+    handler: src/handlers/hello.sayHello 
+    events:
+        - http: true 
+          methods:
+            - GET
+          authLevel: anonymous # can also be `function` or `admin`
+
+goodbye:
+    handler: src/handlers/goodbye.sayGoodbye 
+    events:
+        - http: true 
+          methods:
+            - GET
+        authLevel: anonymous
+...

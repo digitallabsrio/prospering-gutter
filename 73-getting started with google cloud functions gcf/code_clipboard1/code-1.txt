@@ -1,0 +1,2 @@
+cd gcp-function
+ls -1

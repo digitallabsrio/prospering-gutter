@@ -1,0 +1,4 @@
+kubectl run siege \\
+    --image yokogawa/siege \\
+    -it --rm \\
+    -- --concurrent 10 --time 30S "$ADDR"

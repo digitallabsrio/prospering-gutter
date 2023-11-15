@@ -1,0 +1,4 @@
+...
+go-demo-9-db:
+  replicaSet:
+    enabled: true

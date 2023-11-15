@@ -1,0 +1,6 @@
+Serverless:Initializingproviderconfiguration...
+Serverless:LoggingintoAzure
+Serverless:UsingsubscriptionID:7f9f9b08-7d00-43c9-9d30-f10bb79e9a61
+Serverless:ThiscommandwilldeleteyourENTIREresourcegroup(c1sciafd).andALL\
+theAzureresourcesthatitcontainsAreyousureyouwanttoproceed?Ifso,enter\
+thefullnameoftheresourcegroup:

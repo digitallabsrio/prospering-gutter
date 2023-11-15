@@ -1,0 +1,4 @@
+az acr repository show-tags \
+--name $REGISTRY_NAME \ 
+--repository devops-toolkit-series \ 
+--output table

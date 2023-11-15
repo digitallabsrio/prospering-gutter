@@ -1,0 +1,3 @@
+serverless create \
+    --template azure-nodejs \
+    --path azure-function

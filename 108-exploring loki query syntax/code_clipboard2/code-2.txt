@@ -1,0 +1,1 @@
+{job="kube-system/nginx-ingress-controller"} |= "example.com" != "200"

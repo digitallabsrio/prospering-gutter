@@ -1,0 +1,9 @@
+kubectl apply \
+    --filename https://github.com/knative/net-istio/releases/download/knative-v1.8.1/istio.yaml
+
+kubectl apply \
+    --filename https://github.com/knative/net-istio/releases/download/knative-v1.8.1/istio.yaml \
+    --selector knative.dev/crd-install=true
+
+    kubectl apply \
+    --filename https://github.com/knative/net-istio/releases/download/knative-v1.8.1/net-istio.yaml

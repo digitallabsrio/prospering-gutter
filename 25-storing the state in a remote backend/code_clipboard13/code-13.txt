@@ -1,0 +1,4 @@
+...
+aws_s3_bucket.state: Refreshing state... [id=devops-catalog]
+
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.

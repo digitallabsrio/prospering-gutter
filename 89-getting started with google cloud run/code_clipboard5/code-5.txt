@@ -1,0 +1,2 @@
+gcloud container images list \
+    --project $PROJECT_ID

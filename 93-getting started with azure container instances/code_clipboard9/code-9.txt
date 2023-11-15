@@ -1,0 +1,1 @@
+echo $REGISTRY_NAME

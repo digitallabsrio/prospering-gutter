@@ -1,0 +1,2 @@
+ SERVICE                REGION    URL                                                    LAST DEPLOYED BY                                   LAST DEPLOYED AT
+✔  devops-toolkit-series  us-east1  https://devops-toolkit-series-gs5ccepbyq-ue.a.run.app  devops-catalog@fatima-stt.iam.gserviceaccount.com  2023-02-03T06:23:51.608628Z

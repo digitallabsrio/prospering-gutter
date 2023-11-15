@@ -1,0 +1,1 @@
+export SUBDOMAIN=devopstoolkit$(date +%Y%m%d%H%M%S)

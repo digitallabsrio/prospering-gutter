@@ -1,0 +1,3 @@
+kubectl delete namespace argocd
+
+kubectl delete namespace production

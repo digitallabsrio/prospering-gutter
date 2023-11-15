@@ -1,0 +1,3 @@
+Error: Backend initialization required, please run "terraform init"
+Reason: Initial configuration of the requested backend "s3"
+...

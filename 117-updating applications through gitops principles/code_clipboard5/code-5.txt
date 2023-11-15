@@ -1,0 +1,3 @@
+NAME                          HOSTS                               ADDRESS       PORTS AGE
+devops-paradox-devops-paradox devopsparadox.com                   35.237.185.59 80    10m
+devops-toolkit-devops-toolkit devops-toolkit.35.237.185.59.nip.io 35.237.185.59 80    10m

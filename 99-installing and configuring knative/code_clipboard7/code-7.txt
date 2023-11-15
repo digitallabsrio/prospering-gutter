@@ -1,0 +1,2 @@
+kubectl label namespace knative-serving \
+    istio-injection=enabled

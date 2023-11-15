@@ -1,0 +1,1 @@
+topk(10, sum(rate({job=~".+"}[5m])) by (job))

@@ -1,0 +1,5 @@
+export BUCKET_NAME=doc-$(date +%Y%m%d%H%M%S)
+
+cp files/backend.tf . && cat backend.tf \
+  | sed -e "s/devops-catalog/$TF_VAR_state_bucket/g" \
+  | tee $(mktemp) > backend.tf

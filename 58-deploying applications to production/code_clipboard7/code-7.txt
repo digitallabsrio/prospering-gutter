@@ -1,0 +1,11 @@
+Release "go-demo-9" has been upgraded. Happy Helming!
+NAME: go-demo-9
+LAST DEPLOYED: Mon Dec 12 05:38:57 2022
+NAMESPACE: production
+STATUS: deployed
+REVISION: 2
+TEST SUITE: None
+NOTES:
+Get the application URL by running these commands:
+
+kubectl get ingress go-demo-9-go-demo-9

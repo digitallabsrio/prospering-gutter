@@ -1,0 +1,7 @@
+helm --namespace $GH_USER \
+    upgrade --install \
+    --values dev/values.yaml \
+    --set ingress.host=$ADDR \
+    go-demo-9 go-demo-9 \
+    --wait \
+    --timeout 10m

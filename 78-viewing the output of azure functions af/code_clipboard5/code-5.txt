@@ -1,0 +1,1 @@
+export ADDR=http://$FUNC_NAME.azurewebsites.net/api/hello?name=Viktor

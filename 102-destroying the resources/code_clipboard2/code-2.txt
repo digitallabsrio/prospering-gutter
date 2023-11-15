@@ -1,0 +1,2 @@
+kubectl --namespace istio-system \
+    delete service istio-ingressgateway

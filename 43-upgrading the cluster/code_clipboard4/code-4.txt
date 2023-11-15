@@ -1,0 +1,1 @@
+export K8S_VERSION=[...] #e.g. 1.25.2

@@ -1,0 +1,4 @@
+rm -fk8s-worker-nodes.tf 
+
+terraform apply \
+    --var k8s_version=$K8S_VERSION

@@ -1,0 +1,7 @@
+{
+  "appId": "523998df-ced6-4b5f-aff0-5ddc2afafa0d",
+  "displayName": "azure-cli-2020-06-28-19-23-04",
+  "name": "http://azure-cli-2020-06-28-19-23-04",
+  "password": "...",
+  "tenant": "..."
+}

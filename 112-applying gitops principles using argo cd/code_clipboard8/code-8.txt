@@ -1,0 +1,1 @@
+kubectl --namespace argocd get pods

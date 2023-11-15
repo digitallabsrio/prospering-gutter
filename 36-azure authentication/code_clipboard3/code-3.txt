@@ -1,0 +1,14 @@
+[
+  ...
+  {
+    "id": "/subscriptions/.../resourceGroups/devops-catalog-aks",
+    "location": "eastus",
+    "managedBy": null,
+    "name": "devops-catalog-aks",
+    "properties": {
+      "provisioningState": "Succeeded"
+    },
+    "tags": null,
+    "type": "Microsoft.Resources/resourceGroups"
+  }
+]

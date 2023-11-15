@@ -1,0 +1,4 @@
+REVISION                         ACTIVE  SERVICE                DEPLOYED                 DEPLOYED BY
+✔  devops-toolkit-series-00003-meb  yes     devops-toolkit-series  2023-02-03 06:23:39 UTC  devops-catalog@fatima-stt.iam.gserviceaccount.com
+✔  devops-toolkit-series-00002-haj          devops-toolkit-series  2023-02-03 06:02:32 UTC  devops-catalog-saqib@fatima-stt.iam.gserviceaccount.com
+✔  devops-toolkit-series-00001-wuk          devops-toolkit-series  2023-02-03 05:46:50 UTC  tahreem.yasir@educative.io

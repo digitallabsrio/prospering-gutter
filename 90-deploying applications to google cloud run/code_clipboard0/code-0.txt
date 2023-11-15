@@ -1,0 +1,9 @@
+gcloud run deploy \
+    devops-toolkit-series \
+    --image $IMAGE \
+    --region $REGION \
+    --allow-unauthenticated \
+    --port 80 \
+    --concurrency 100 \
+    --platform managed \
+    --project $PROJECT_ID

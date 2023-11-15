@@ -1,0 +1,17 @@
+
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+...
+spec:
+  ...
+  http:
+  - name: primary
+    route:
+    - destination:
+        host: devops-toolkit-devops-toolkit
+        ...
+      weight: 80
+    - destination:
+        host: devops-toolkit-devops-toolkit-canary
+        ...
+      weight: 20

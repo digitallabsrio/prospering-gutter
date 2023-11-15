@@ -1,0 +1,4 @@
+kubectl argo rollouts \
+    --namespace devops-toolkit \
+    get rollout devops-toolkit-devops-toolkit \
+    --watch

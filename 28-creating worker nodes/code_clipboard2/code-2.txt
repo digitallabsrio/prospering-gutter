@@ -1,0 +1,36 @@
+…
+Terraform will perform the following actions:
+
+   aws_eks_node_group.primary will be created
+  + resource "aws_eks_node_group" "primary" {
+      …
+   aws_iam_role.worker will be created
+  + resource "aws_iam_role" "worker" {
+      …
+   aws_iam_role_policy_attachment.cni will be created
+  + resource "aws_iam_role_policy_attachment" "cni" {
+      …
+   aws_iam_role_policy_attachment.worker will be created
+      …
+   aws_internet_gateway.worker will be created
+  + resource "aws_internet_gateway" "worker" {
+      …
+   aws_route_table.worker will be created
+  + resource "aws_route_table" "worker" {
+      …
+   aws_route_table_association.worker[0] will be created
+  + resource "aws_route_table_association" "worker" {
+      …
+   aws_route_table_association.worker[1] will be created
+  + resource "aws_route_table_association" "worker" {
+      …
+   aws_route_table_association.worker[2] will be created
+  + resource "aws_route_table_association" "worker" {
+      …
+Plan: 10 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: 

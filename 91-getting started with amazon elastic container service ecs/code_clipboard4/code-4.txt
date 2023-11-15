@@ -1,0 +1,12 @@
+[
+  {
+    "name": "devops-toolkit-series",
+    "image": "vfarcic/devops-toolkit-series",
+    "portMappings": [
+      {
+        "containerPort": 80,
+        "hostPort": 80
+      }
+    ]
+  }
+]

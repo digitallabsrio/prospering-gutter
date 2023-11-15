@@ -1,0 +1,5 @@
+while true; do
+    curl -I -H "Host: devopstoolkitseries.com" \
+        "http://$ISTIO_HOST"
+    sleep 1
+done

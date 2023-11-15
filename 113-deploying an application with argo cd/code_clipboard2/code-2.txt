@@ -1,0 +1,5 @@
+argocd app create devops-toolkit \
+    --repo https://github.com/vfarcic/devops-toolkit.git \
+    --path k8s \
+    --dest-server https://kubernetes.default.svc \
+    --dest-namespace devops-toolkit

@@ -1,0 +1,29 @@
+####################
+# Create a Cluster #
+####################
+
+cd devops-catalog-code
+
+cd terraform-aks/simple
+
+az login
+
+terraform init
+
+terraform apply
+
+export KUBECONFIG=$PWD/kubeconfig
+
+kubectl get nodes
+
+cd ../../../
+
+#######################
+# Destroy The Cluster #
+#######################
+
+cd devops-catalog-code/terraform-aks/simple
+
+terraform destroy
+
+cd ../../../

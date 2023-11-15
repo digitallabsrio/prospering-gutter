@@ -1,0 +1,1 @@
+open https://console.cloud.google.com/run?project=$PROJECT_ID

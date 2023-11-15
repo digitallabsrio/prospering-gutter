@@ -1,0 +1,5 @@
+README.md
+host.json
+package.json
+serverless.yml
+src

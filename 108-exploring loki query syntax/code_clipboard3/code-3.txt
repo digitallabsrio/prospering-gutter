@@ -1,0 +1,1 @@
+open http://grafana.$INGRESS_HOST.nip.io/dashboard/new

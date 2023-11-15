@@ -1,0 +1,4 @@
+NAME                                STATUS   ROLES   AGE     VERSION
+aks-docatalog-37661550-vmss000000   Ready    agent   6m19s   v1.25.2
+aks-docatalog-37661550-vmss000001   Ready    agent   3m38s   v1.25.2
+aks-docatalog-37661550-vmss000002   Ready    agent   93s     v1.25.2

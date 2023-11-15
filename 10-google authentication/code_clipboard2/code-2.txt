@@ -1,0 +1,4 @@
+gcloud iam service-accounts \
+    create devops-catalog \
+    --project $PROJECT_ID \
+    --display-name devops-catalog

@@ -1,0 +1,2 @@
+serverless plugin install \
+    --name serverless-azure-functions

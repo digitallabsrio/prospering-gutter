@@ -1,0 +1,2 @@
+NAME             URL                                                  LATESTCREATED          LATESTREADY   READY     REASON
+devops-toolkit   http://devops-toolkit.production.svc.cluster.local   devops-toolkit-00001                 TRUE   

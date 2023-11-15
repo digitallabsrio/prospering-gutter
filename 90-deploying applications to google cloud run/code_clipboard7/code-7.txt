@@ -1,0 +1,7 @@
+export ADDR=$(gcloud run services \
+    describe devops-toolkit \
+    --region $REGION \
+    --platform managed \
+    --project $PROJECT_ID \
+    --format json \
+    | jq -r ".status.url")

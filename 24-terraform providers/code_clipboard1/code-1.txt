@@ -1,0 +1,6 @@
+ Error: Inconsistent dependency lock file
+│ 
+│ The following dependency selections recorded in the lock file are inconsistent with the current
+│ ...
+│ To make the initial dependency selections that will initialize the dependency lock file, run:
+│   terraform init

@@ -1,0 +1,18 @@
+ResourceGroupName:c1sciafd FunctionAppName:20200628211206-eus-dev-azure-function Functions:
+goodbye
+  "name": "20200628211206-eus-dev-d6a0ee-appinsights",
+  "resourceType": "microsoft.insights/components",
+  "region": "eastus"
+}, {
+  "name": "202eusdevd6a0ee",
+  "resourceType": "Microsoft.Storage/storageAccounts",
+  "region": "eastus"
+}, {
+  "name": "EastUSPlan",
+  "resourceType": "Microsoft.Web/serverFarms",
+  "region": "eastus"
+}, {
+  "name": "20200628211206-eus-dev-azure-function",
+  "resourceType": "Microsoft.Web/sites",
+  "region": "eastus"
+}

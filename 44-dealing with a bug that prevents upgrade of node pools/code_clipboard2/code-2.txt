@@ -1,0 +1,9 @@
+az aks nodepool upgrade \
+    --cluster-name \
+    $(terraform output --raw cluster_name) \
+    --name \
+    $(terraform output --raw cluster_name) \
+    --resource-group \
+    $(terraform output --raw resource_group) \
+    --kubernetes-version \
+    $K8S_VERSION

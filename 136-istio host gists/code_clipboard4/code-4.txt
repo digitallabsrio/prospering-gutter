@@ -1,0 +1,46 @@
+
+####################
+# Create a Cluster #
+####################
+
+# Only if you did not yet clone that repository
+cd devops-catalog-code
+
+cd terraform-aks/simple
+
+az login
+
+terraform init
+
+terraform apply
+
+export KUBECONFIG=$PWD/kubeconfig
+
+kubectl get nodes
+
+cd ../../../
+
+#################
+# Install Istio #
+#################
+
+istioctl install --skip-confirmation
+
+export ISTIO_HOST=$(kubectl \
+    --namespace istio-system \
+    get svc istio-ingressgateway \
+    --output jsonpath="{.status.loadBalancer.ingress[0].ip}")
+
+echo $ISTIO_HOST
+
+# Repeat the `export` commands if the output is empty
+
+#######################
+# Destroy The Cluster #
+#######################
+
+cd devops-catalog-code/terraform-aks/simple
+
+terraform destroy
+
+cd ../../../

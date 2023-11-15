@@ -1,0 +1,1 @@
+export ADDR=http://go-demo-9-go-demo-9.production/demo/hello

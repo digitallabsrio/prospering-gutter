@@ -1,0 +1,2 @@
+helm --namespace production \
+    history go-demo-9

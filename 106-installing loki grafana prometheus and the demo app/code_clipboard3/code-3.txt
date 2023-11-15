@@ -1,0 +1,6 @@
+helm upgrade --install \
+    loki loki/loki-stack \
+    --namespace monitoring \
+    --create-namespace \
+    --version 2.1.1 \
+    --wait

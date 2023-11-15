@@ -1,0 +1,20 @@
+####################
+# Create a Cluster #
+####################
+
+# Make sure that Kubernetes is enabled
+
+# Tested with 2 CPUs and 3GB RAM
+
+kubectl apply \
+    --filename https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.0/deploy/static/provider/cloud/deploy.yaml
+
+export INGRESS_HOST=127.0.0.1
+
+#######################
+# Destroy The Cluster #
+#######################
+
+# Open Preferences, select the Kubernetes tab, and click the Reset Kubernetes Cluster button
+
+## Quit Docker Desktop

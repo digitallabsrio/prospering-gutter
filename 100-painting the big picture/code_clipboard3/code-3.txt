@@ -1,0 +1,11 @@
+Creating service 'devops-toolkit' in namespace 'production':
+
+  0.038s The Route is still working to reflect the latest desired specification.
+  0.047s ...
+  0.107s Configuration "devops-toolkit" is waiting for a Revision to become ready.
+  5.124s ...
+  5.183s Ingress has not yet been reconciled.
+  5.293s Ready to serve.
+
+Service 'devops-toolkit' created to latest revision 'devops-toolkit-00001' is available at URL:
+http://devops-toolkit.production.svc.cluster.local

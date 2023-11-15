@@ -1,0 +1,4 @@
+while true; do
+    curl -I http://devops-toolkit.$ISTIO_HOST.nip.io
+    sleep 1
+done

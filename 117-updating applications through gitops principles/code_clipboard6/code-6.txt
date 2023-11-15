@@ -1,0 +1,7 @@
+rm helm/templates/devops-paradox.yaml
+
+git add .
+
+git commit -m "Removed DOP"
+
+git push

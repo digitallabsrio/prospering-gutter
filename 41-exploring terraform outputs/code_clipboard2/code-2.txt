@@ -1,0 +1,6 @@
+...
+Outputs:
+
+cluster_name = docatalog
+region = eastus
+resource_group = devops-catalog-aks

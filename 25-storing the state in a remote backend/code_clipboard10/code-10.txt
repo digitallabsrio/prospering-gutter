@@ -1,0 +1,3 @@
+cat backend.tf \
+  | sed -e "s/devops-catalog/$TF_VAR_state_bucket/g" \
+  | tee $(mktemp) > backend.tf

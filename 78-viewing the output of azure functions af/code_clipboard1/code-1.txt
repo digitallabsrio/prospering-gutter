@@ -1,0 +1,6 @@
+Serverless: Initializing provider configuration...
+Serverless: Logging into Azure
+Serverless: Using subscription ID: 7f9f9b08-7d00-43c9-9d30-f10bb79e9a61
+Serverless: Invocation url: http://20200628211206-eus-dev-azure-function.azurewebsites.net/api/hello?name=Viktor
+Serverless: Invoking function hello with GET request
+Serverless: "Hello Viktor"

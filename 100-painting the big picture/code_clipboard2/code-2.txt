@@ -1,0 +1,4 @@
+kn service create devops-toolkit \
+    --namespace production \
+    --image vfarcic/devops-toolkit-series \
+    --port 80

@@ -1,0 +1,4 @@
+helm upgrade devops-toolkit helm \
+    --namespace devops-toolkit \
+    --reuse-values \
+    --set image.tag=2.9.9

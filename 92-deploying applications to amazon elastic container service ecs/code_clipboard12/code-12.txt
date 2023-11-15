@@ -1,0 +1,5 @@
+terraform destroy \
+    --var lb_arn=$LB_ARN \
+    --var security_group_id=$SECURITY_GROUP_ID \
+    --var subnet_ids="$SUBNET_IDS" \
+    --var cluster_id=$CLUSTER_ID

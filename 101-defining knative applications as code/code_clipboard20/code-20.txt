@@ -1,0 +1,8 @@
+# Only if GKE or AKS
+kubectl run siege \
+    --image yokogawa/siege \
+    -it --rm \
+    -- --concurrent 500 --time 60S \
+    "http://devops-toolkit.production.$INGRESS_HOST" \
+    && kubectl --namespace production \
+    get pods

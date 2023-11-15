@@ -1,0 +1,12 @@
+{
+  "Buckets": [
+    {
+      "Name": "devops-catalog",
+      "CreationDate": "2020-04-13T..."
+    }
+  ],
+  "Owner": {
+    "DisplayName": "viktor",
+    "ID": "c6673..."
+  }
+}

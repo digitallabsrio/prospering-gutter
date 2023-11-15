@@ -1,0 +1,5 @@
+cat serverless.yml \
+    | sed -e "s@us-central1@$GCP_REGION@g" \
+    | sed -e "s@my-project@$PROJECT_ID@g" \
+    | sed -e "s@~/.gcloud/keyfile.json@$PATH_TO_ACCOUNT_JSON@g" \
+    | tee serverless.yml

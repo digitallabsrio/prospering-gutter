@@ -1,0 +1,5 @@
+git add .
+
+git commit -m "Changed the org"
+
+git push

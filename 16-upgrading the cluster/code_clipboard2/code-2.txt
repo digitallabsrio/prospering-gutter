@@ -1,0 +1,5 @@
+gcloud container get-server-config \
+    --region \
+    $(terraform output --raw region) \
+    --project \
+    $(terraform output --raw project_id)

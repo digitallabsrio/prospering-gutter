@@ -1,0 +1,34 @@
+Terraform will perform the following actions:
+
+  # google_container_cluster.primary will be updated in-place
+  ~ resource "google_container_cluster" "primary" {
+        id                          = "projects/fatima-stt/locations/us-east1/clusters/devops-catalog"
+      ~ min_master_version          = "1.24.6-gke.1500" -> "1.24.7-gke.900"
+        name                        = "devops-catalog"
+        # (25 unchanged attributes hidden)
+
+        # (15 unchanged blocks hidden)
+    }
+
+  # google_container_node_pool.primary_nodes will be updated in-place
+  ~ resource "google_container_node_pool" "primary_nodes" {
+        id                          = "projects/fatima-stt/locations/us-east1/clusters/devops-catalog/nodePools/devops-catalog"
+        name                        = "devops-catalog"
+      ~ version                     = "1.24.6-gke.1500" -> "1.24.7-gke.900"
+        # (8 unchanged attributes hidden)
+
+      ~ autoscaling {
+          - location_policy      = "ANY" -> null
+            # (4 unchanged attributes hidden)
+        }
+
+        # (4 unchanged blocks hidden)
+    }
+
+Plan: 0 to add, 2 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value:   

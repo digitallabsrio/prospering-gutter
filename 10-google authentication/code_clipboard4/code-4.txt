@@ -1,0 +1,4 @@
+gcloud iam service-accounts \
+    keys create account.json \
+    --iam-account devops-catalog@$PROJECT_ID.iam.gserviceaccount.com\
+    --project $PROJECT_ID

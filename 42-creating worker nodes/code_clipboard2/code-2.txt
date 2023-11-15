@@ -1,0 +1,13 @@
+…
+Terraform will perform the following actions:
+
+  # azurerm_kubernetes_cluster_node_pool.secondary will be created
+  + resource "azurerm_kubernetes_cluster_node_pool" "secondary" {
+…
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes 

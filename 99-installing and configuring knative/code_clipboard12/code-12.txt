@@ -1,0 +1,15 @@
+apiVersion:v1 
+data:
+  _example: | 
+      ...
+      example.com: |
+      ...
+      example.org: |
+        selector:
+          app: nonprofit
+      ...
+      svc.cluster.local: |
+        selector:
+          app: secret
+kind:ConfigMap 
+...

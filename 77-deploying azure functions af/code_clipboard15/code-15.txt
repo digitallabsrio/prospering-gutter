@@ -1,0 +1,7 @@
+...
+Serverless: -> Function package uploaded successfully
+Serverless: Deployed serverless functions:
+Serverless: -> goodbye:[GET] 20200628211206-eus-dev-azure-function.azurewebsites.ne\
+    t/api/goodbye
+Serverless: -> hello:[GET] 20200628211206-eus-dev-azure-function.azurewebsites.net/\
+    api/hello

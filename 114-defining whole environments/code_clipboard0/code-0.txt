@@ -1,0 +1,4 @@
+# Replace `[...]` with the GitHub organization
+export GH_ORG=[...]
+
+cd argocd-production

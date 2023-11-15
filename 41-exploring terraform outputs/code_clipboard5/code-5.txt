@@ -1,0 +1,9 @@
+export KUBECONFIG=$PWD/kubeconfig
+
+az aks get-credentials \
+    --name \
+    $(terraform output --raw cluster_name) \
+    --resource-group \
+    $(terraform output --raw resource_group) \
+    --file \
+    $KUBECONFIG

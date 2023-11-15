@@ -1,0 +1,2 @@
+kn service delete devops-toolkit \
+    --namespace production

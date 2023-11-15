@@ -1,0 +1,2 @@
+export SERVICE_PRINCIPAL=$(\
+    az ad sp create-for-rbac)

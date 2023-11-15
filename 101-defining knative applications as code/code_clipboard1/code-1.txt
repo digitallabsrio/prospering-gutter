@@ -1,0 +1,2 @@
+kubectl --namespace production apply \
+    --filename devops-toolkit.yaml

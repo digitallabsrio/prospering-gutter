@@ -1,0 +1,26 @@
+
+Name:            devops-toolkit-devops-toolkit
+Namespace:       devops-toolkit
+Status:          ॥ Paused
+Strategy:        Canary
+  Step:          1/8
+  SetWeight:     20
+  ActualWeight:  20
+Images:          vfarcic/devops-toolkit-series:2.6.2 (stable)
+                 vfarcic/devops-toolkit-series:2.9.9 (canary)
+Replicas:
+  Desired:       2
+  Current:       3
+  Updated:       1
+  Ready:         3
+  Available:     3
+
+NAME                                                       KIND        STATUS     AGE    INFO
+⟳ devops-toolkit-devops-toolkit                            Rollout     ॥ Paused   2m56s  
+├──# revision:2                                                                          
+│  └──⧉ devops-toolkit-devops-toolkit-6785bfb67b           ReplicaSet  ✔ Healthy  36s    canary
+│     └──□ devops-toolkit-devops-toolkit-6785bfb67b-zrzff  Pod         ✔ Running  36s    ready:1/1
+└──# revision:1                                                                          
+   └──⧉ devops-toolkit-devops-toolkit-849fcb5f44           ReplicaSet  ✔ Healthy  2m41s  stable
+      ├──□ devops-toolkit-devops-toolkit-849fcb5f44-fgl5v  Pod         ✔ Running  2m41s  ready:1/1
+      └──□ devops-toolkit-devops-toolkit-849fcb5f44-klcrh  Pod         ✔ Running  2m41s  ready:1/1

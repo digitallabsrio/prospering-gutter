@@ -1,0 +1,14 @@
+image:
+  repository: vfarcic/go-demo-9
+  tag: 0.0.1
+  pullPolicy: IfNotPresent
+...
+ingress:
+  host: go-demo-9.acme.com
+
+hpa:
+  enabled: true
+  ...
+go-demo-9-db:
+  replicaSet:
+    enabled: true

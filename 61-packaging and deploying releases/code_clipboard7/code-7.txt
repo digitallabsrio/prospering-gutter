@@ -1,0 +1,1 @@
+helm lint go-demo-9

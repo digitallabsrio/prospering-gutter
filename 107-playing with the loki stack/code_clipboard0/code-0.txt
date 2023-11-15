@@ -1,0 +1,4 @@
+kubectl --namespace monitoring \\
+    get secret grafana \\
+    --output jsonpath="{.data.admin-password}" \\
+    | base64 --decode ; echo

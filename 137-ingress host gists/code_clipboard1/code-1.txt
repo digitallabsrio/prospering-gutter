@@ -1,0 +1,34 @@
+####################
+# Create a Cluster #
+####################
+
+# Only if you did not yet clone that repository
+cd devops-catalog-code
+
+cd terraform-eks/simple
+
+# Replace `[...]` with your access key ID`
+export AWS_ACCESS_KEY_ID=[...]
+
+# Replace `[...]` with your secret access key
+export AWS_SECRET_ACCESS_KEY=[...]
+
+terraform init
+
+terraform apply
+
+export KUBECONFIG=$PWD/kubeconfig
+
+kubectl get nodes
+
+cd ../../../
+
+#######################
+# Destroy The Cluster #
+#######################
+
+cd devops-catalog-code/terraform-eks/simple
+
+terraform destroy
+
+cd ../../../

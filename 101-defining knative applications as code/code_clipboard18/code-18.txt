@@ -1,0 +1,18 @@
+...
+Transactions:       40697hits
+Availability:       100.00%    
+Elapsedtime:        59.53secs     
+Datatransferred:    83.72MB
+Responsetime:       0.22secs      
+Transactionrate:    683.64trans/sec
+Throughput:         1.41MB/sec
+Concurrency:        149.94
+Successful transactions: 40699
+Failedtransactions: 0
+Longesttransaction: 5.30
+Shortesttransaction: 0.00
+...
+NAME                                READY STATUS  RESTARTS AGE
+devops-toolkit-...-deployment-...   3/3   Running 0        58s
+devops-toolkit-...-deployment-...   3/3   Running 0        58s
+devops-toolkit-...-deployment-...   3/3   Running 0        58s

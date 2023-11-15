@@ -1,0 +1,8 @@
+Updated IAM policy for project [doc-20220830083917].
+bindings:
+- members:
+  - serviceAccount:devops-catalog@doc-20220830083917.iam.gserviceaccount.com
+  - user:tahreem.yasir@educative.io
+  role: roles/owner
+etag: BwXncWNhAUg=
+version: 1

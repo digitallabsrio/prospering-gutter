@@ -1,0 +1,2 @@
+helm show values bitnami/mongodb \
+  --version 13.5.0

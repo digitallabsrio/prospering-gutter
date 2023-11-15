@@ -1,0 +1,2 @@
+cd azure-function
+ls -1

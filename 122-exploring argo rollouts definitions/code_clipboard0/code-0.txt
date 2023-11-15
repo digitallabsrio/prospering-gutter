@@ -1,0 +1,50 @@
+{{- if .Values.rollout.enabled }}
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+...
+spec:
+  ...
+  strategy:
+    canary:
+      canaryService: {{ template "fullname" . }}-canary
+      stableService: {{ template "fullname" . }}
+      trafficRouting:
+        istio:
+          virtualService:
+            name: {{ template "fullname" . }}
+            routes:
+            - primary
+      steps:
+{{ toYaml .Values.rollout.steps | indent 6 }}
+{{- if .Values.rollout.analysis.enabled }}
+      ...
+{{- end }}
+
+{{- if .Values.rollout.analysis.enabled }}
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+...
+{{- end }}
+      
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "fullname" . }}-canary
+  labels:
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 80
+    protocol: TCP
+    name: http
+  selector:
+    app: {{ template "fullname" . }}
+{{- end }}

@@ -1,0 +1,3 @@
+cat go-demo-9/values.yaml \
+    | sed -e "s@tag: 0.0.1@tag: 0.0.2@g" \
+    | tee go-demo-9/values.yaml

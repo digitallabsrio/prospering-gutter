@@ -1,0 +1,9 @@
+export ACR_USER=$(
+    az acr credential show \
+    --name $REGISTRY_NAME \
+    | jq -r '.username')
+
+export ACR_PASS=$(
+    az acr credential show \
+    --name $REGISTRY_NAME \
+    | jq -r '.passwords[0].value')

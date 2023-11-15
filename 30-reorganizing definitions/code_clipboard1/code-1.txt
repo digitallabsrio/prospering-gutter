@@ -1,0 +1,11 @@
+cat \
+    files/backend.tf \
+    files/k8s-control-plane.tf \
+    files/k8s-worker-nodes.tf \
+    files/provider.tf \
+    files/storage.tf \
+    | tee main.tf
+
+cat main.tf \
+    | sed -e "s/bucket = \"devops-catalog\"/bucket = \"$TF_VAR_state_bucket\"/g" \
+    | tee main.tf

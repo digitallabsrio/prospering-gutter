@@ -1,0 +1,14 @@
+cd ../helm
+
+helm repo add bitnami \
+    https://charts.bitnami.com/bitnami
+
+helm dependency update go-demo-9
+
+kubectl create namespace production
+
+helm upgrade --install \
+    go-demo-9 go-demo-9 \
+    --namespace production \
+    --wait \
+    --timeout 10m

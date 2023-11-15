@@ -1,0 +1,2 @@
+az acr credential show \
+    --name $REGISTRY_NAME

@@ -1,0 +1,19 @@
+Name:            devops-toolkit-devops-toolkit
+Namespace:       devops-toolkit
+Status:          ✔ Healthy
+Strategy:        Canary
+  Step:          8/8
+  SetWeight:     100
+  ActualWeight:  100
+Images:          vfarcic/devops-toolkit-series:2.9.9 (stable)
+...
+NAME                                                       KIND        STATUS        AGE    INFO
+⟳ devops-toolkit-devops-toolkit                            Rollout     ✔ Healthy     16m    
+├──# revision:4                                                                             
+│  └──⧉ devops-toolkit-devops-toolkit-6785bfb67b           ReplicaSet  ✔ Healthy     14m    stable
+│     ├──□ devops-toolkit-devops-toolkit-6785bfb67b-zrzff  Pod         ✔ Running     14m    ready:1/1
+│     └──□ devops-toolkit-devops-toolkit-6785bfb67b-4xmxc  Pod         ✔ Running     5m22s  ready:1/1
+├──# revision:3                                                                             
+│  └──⧉ devops-toolkit-devops-toolkit-7dd4875c79           ReplicaSet  • ScaledDown  80s    
+└──# revision:1                                                                             
+   └──⧉ devops-toolkit-devops-toolkit-849fcb5f44           ReplicaSet  • ScaledDown  16m

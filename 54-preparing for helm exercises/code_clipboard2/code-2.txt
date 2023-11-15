@@ -1,0 +1,83 @@
+####################
+# Create a Cluster #
+####################
+
+# Execute the command that follows only if you do not have `account.json` copied to `terraform-gke/minimal/`.
+cp terraform-gke/account.json \
+    terraform-gke/minimal/account.json
+
+cd terraform-gke/minimal
+
+gcloud projects list
+
+export TF_VAR_project_id=[...] # Replace `[...]` with the ID of your Google Cloud Project
+
+# You can skip this step if this is not the first time you are using this Gist
+# Replace `[...]` with the name of the bucket you are already using for storage.
+export TF_VAR_state_bucket=[...]
+
+# You can skip this step if this is not the first time you are using this Gist.
+# We need to change the hard-coded name of the bucket to the unique value stored in the environment variable `TF_VAR_state_bucket`.
+cat main.tf \
+  | sed -e "s@bucket      = \"devops-catalog\"@bucket      = \"$TF_VAR_state_bucket\"@g" \
+  | tee main.tf
+
+gcloud container get-server-config \
+    --region us-east1 \
+    --project $TF_VAR_project_id
+
+# Replace `[...]` with a valid master version from the previous output
+export K8S_VERSION=[...]
+
+terraform init
+
+terraform apply \
+    --var k8s_version=$K8S_VERSION
+
+export KUBECONFIG=$PWD/kubeconfig
+
+gcloud container clusters \
+    get-credentials \
+    $(terraform output --raw cluster_name) \
+    --project \
+    $(terraform output --raw project_id) \
+    --region \
+    $(terraform output --raw region)
+
+kubectl create clusterrolebinding \
+    cluster-admin-binding \
+    --clusterrole \
+    cluster-admin \
+    --user \
+    $(gcloud config get-value account)
+
+kubectl get nodes
+
+cd ../..
+
+#############################
+# Deploy Ingress Controller #
+#############################
+
+kubectl apply \
+    --filename https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.0/deploy/static/provider/cloud/deploy.yaml
+
+export INGRESS_HOST=$(kubectl \
+    --namespace ingress-nginx \
+    get svc ingress-nginx-controller \
+    --output jsonpath="{.status.loadBalancer.ingress[0].ip}")
+
+echo $INGRESS_HOST
+
+# Repeat the `export` command if the output is empty
+
+#######################
+# Destroy The Cluster #
+#######################
+
+cd terraform-gke/minimal
+
+terraform destroy \
+    --var k8s_version=$K8S_VERSION
+
+cd ../..

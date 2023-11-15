@@ -1,0 +1,9 @@
+helm upgrade devops-toolkit helm \
+    --namespace devops-toolkit \
+    --reuse-values \
+    --set image.tag=2.9.9
+
+kubectl argo rollouts \
+    --namespace devops-toolkit \
+    get rollout devops-toolkit-devops-toolkit \
+    --watch

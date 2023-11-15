@@ -1,0 +1,1 @@
+helm show readme stable/mongodb

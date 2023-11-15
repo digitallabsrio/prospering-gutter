@@ -1,0 +1,8 @@
+...
+endpoints:
+  GET - https://vwnr8n39vb.execute-api.us-east-1.amazonaws.com/dev/hello
+functions:
+  hello: aws-function-dev-hello
+layers:
+  None
+...

@@ -1,0 +1,1 @@
+cat go-demo-9/requirements.yaml

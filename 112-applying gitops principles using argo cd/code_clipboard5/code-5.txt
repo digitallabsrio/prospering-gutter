@@ -1,0 +1,6 @@
+argocd login \
+    --insecure \
+    --username admin \
+    --password $PASS \
+    --grpc-web \
+    argocd.$INGRESS_HOST.nip.io

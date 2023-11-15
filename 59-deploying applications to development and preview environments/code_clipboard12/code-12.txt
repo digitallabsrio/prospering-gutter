@@ -1,0 +1,2 @@
+helm --namespace $GH_USER \
+    delete go-demo-9

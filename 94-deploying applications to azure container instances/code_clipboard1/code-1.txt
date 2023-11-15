@@ -1,0 +1,4 @@
+az container show\
+  --resource-group $RESOURCE_GROUP \ 
+  --name devops-toolkit-series \ 
+  --out table

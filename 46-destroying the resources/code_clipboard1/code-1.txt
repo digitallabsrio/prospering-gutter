@@ -1,0 +1,8 @@
+azurerm_kubernetes_cluster.primary will be destroyed
+  - resource "azurerm_kubernetes_cluster" "primary" {
+…
+Plan: 0 to add, 0 to change, 1 to destroy.
+╷
+│ Warning: Resource targeting is in effect
+…
+  Enter a value: 

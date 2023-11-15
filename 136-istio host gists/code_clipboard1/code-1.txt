@@ -1,0 +1,24 @@
+####################
+# Create a Cluster #
+####################
+
+minikube start --memory 5g --cpus 4
+
+#################
+# Install Istio #
+#################
+
+istioctl install --skip-confirmation
+
+export ISTIO_PORT=$(kubectl \
+    --namespace istio-system \
+    get service istio-ingressgateway \
+    --output jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}')
+
+export ISTIO_HOST=$(minikube ip):$ISTIO_PORT
+
+#######################
+# Destroy The Cluster #
+#######################
+
+minikube delete

@@ -1,0 +1,4 @@
+kubectl create namespace argo-rollouts
+
+kubectl --namespace argo-rollouts apply \
+    --filename https://raw.githubusercontent.com/argoproj/argo-rollouts/stable/manifests/install.yaml

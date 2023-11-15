@@ -1,0 +1,11 @@
+export AZURE_TENANT_ID=$(
+    echo $SERVICE_PRINCIPAL | \
+    jq ".tenant")
+
+export AZURE_CLIENT_ID=$(
+    echo $SERVICE_PRINCIPAL | \
+    jq ".name")
+
+export AZURE_CLIENT_SECRET=$(
+    echo $SERVICE_PRINCIPAL | \
+    jq ".password")

@@ -1,0 +1,8 @@
+cat serverless.yml \
+    | sed -e "s/West US 2/$REGION/g" \
+    | sed -e "s/nodejs12.x/nodejs12/g" \
+    | sed -e "s/# os@subscriptionId: $AZURE_SUBSCRIPTION_ID\\
+  resourceGroup: $RESOURCE_GROUP\\
+  prefix: \"$PREFIX\"\\
+  # os/g" \
+    | tee serverless.yml

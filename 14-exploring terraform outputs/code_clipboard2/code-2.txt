@@ -1,0 +1,5 @@
+Outputs:
+
+cluster_name = "devops-catalog"
+project_id = "fatima-stt"
+region = "us-east1"

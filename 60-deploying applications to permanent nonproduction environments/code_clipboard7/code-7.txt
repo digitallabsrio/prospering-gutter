@@ -1,0 +1,2 @@
+NAME                REFERENCE                      TARGETS                      MINPODS MAXPODS REPLICAS AGE
+go-demo-9-go-demo-9 Deployment/go-demo-9-go-demo-9 <unknown>/80%, <unknown>/80% 2       6       2        2m59s

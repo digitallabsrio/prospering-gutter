@@ -1,0 +1,372 @@
+##############################################
+# Using Argo rollouts to deploy applications #
+##############################################
+
+############################################
+# Installing and configuring Argo rollouts #
+############################################
+
+# Docker desktop (docker-istio.sh): https://gist.github.com/a3025923ad025215fe01594f937d4298)
+# Minikube (minikube-istio.sh): https://gist.github.com/1ab5f877852193e8ebd33a97ae170612)
+# GKE (gke-istio.sh): https://gist.github.com/d5c93afc83535f0b5fec93bd03e447f4)
+# EKS (eks-istio.sh): https://gist.github.com/2ebbabc3ff515ed27b2e46c0201fb1f8)
+# AKS (aks-istio.sh): https://gist.github.com/2ec945256e3901fee1a62bb04d8b53b0)
+
+# If macOS
+brew install \
+    argoproj/tap/kubectl-argo-rollouts
+
+# If Linux or WSL
+curl -LO https://github.com/argoproj/argo-rollouts/releases/download/v0.9.1/kubectl-argo-rollouts-linux-amd64
+
+# If Linux or WSL
+chmod +x kubectl-argo-rollouts-linux-amd64
+
+# If Linux or WSL
+sudo mv ./kubectl-argo-rollouts-linux-amd64 \
+    /usr/local/bin/kubectl-argo-rollouts
+
+kubectl argo rollouts --help
+
+kubectl create namespace argo-rollouts
+
+kubectl --namespace argo-rollouts apply \
+    --filename https://raw.githubusercontent.com/argoproj/argo-rollouts/stable/manifests/install.yaml
+
+git clone https://github.com/vfarcic/devops-toolkit.git
+
+cd devops-toolkit
+
+git pull
+
+cat helm/templates/rollout.yaml
+
+cat helm/templates/hpa.yaml
+
+cat helm/templates/istio.yaml
+
+cat helm/values.yaml
+
+###############################
+# Deploying the first release #
+###############################
+
+cat rollout/values-pause-x2.yaml
+
+helm upgrade --install \
+    devops-toolkit helm \
+    --namespace devops-toolkit \
+    --create-namespace \
+    --values rollout/values-pause-x2.yaml \
+    --set ingress.host=devops-toolkit.$ISTIO_HOST.nip.io \
+    --set image.tag=2.6.2 \
+    --wait
+
+helm upgrade --install \
+    devops-toolkit helm \
+    --namespace devops-toolkit \
+    --create-namespace \
+    --values rollout/values-pause-x2.yaml \
+    --set ingress.host=devops-toolkit.$ISTIO_HOST.nip.io \
+    --set image.tag=2.6.2 \
+    --wait
+
+kubectl argo rollouts \
+    --namespace devops-toolkit \
+    get rollout devops-toolkit-devops-toolkit \
+    --watch
+
+# If NOT Minikube
+open http://devops-toolkit.$ISTIO_HOST.nip.io
+
+####################################################
+# Deploying new releases using the Canary strategy #
+####################################################
+
+helm upgrade devops-toolkit helm \
+    --namespace devops-toolkit \
+    --reuse-values \
+    --set image.tag=2.9.9
+
+kubectl argo rollouts \
+    --namespace devops-toolkit \
+    get rollout devops-toolkit-devops-toolkit \
+    --watch
+
+# If NOT Minikube
+for i in {1..100}; do
+    curl -s http://devops-toolkit.$ISTIO_HOST.nip.io \
+        | grep -i "catalog, patterns, and blueprints"
+done | wc -l
+
+# If Minikube
+for i in {1..100}; do
+    curl -s -H "Host: devopstoolkitseries.com" \
+        "http://$ISTIO_HOST" \
+        | grep -i "catalog, patterns, and blueprints"
+done | wc -l
+
+kubectl --namespace devops-toolkit \
+    get virtualservice \
+    devops-toolkit-devops-toolkit \
+    --output yaml
+
+kubectl argo rollouts \
+    --namespace devops-toolkit \
+    promote devops-toolkit-devops-toolkit
+
+kubectl argo rollouts \
+    --namespace devops-toolkit \
+    get rollout devops-toolkit-devops-toolkit \
+    --watch
+
+# If not Minikube
+for i in {1..100}; do
+    curl -s http://devops-toolkit.$ISTIO_HOST.nip.io \
+        | grep -i "catalog, patterns, and blueprints"
+done | wc -l
+
+# If Minikube
+for i in {1..100}; do
+    curl -s -H "Host: devopstoolkitseries.com" \
+        "http://$ISTIO_HOST" \
+        | grep -i "catalog, patterns, and blueprints"
+done | wc -l
+
+kubectl argo rollouts \
+    --namespace devops-toolkit \
+    promote devops-toolkit-devops-toolkit
+
+kubectl argo rollouts \
+    --namespace devops-toolkit \
+    get rollout devops-toolkit-devops-toolkit \
+    --watch
+
+# If not Minikube
+for i in {1..100}; do
+    curl -s http://devops-toolkit.$ISTIO_HOST.nip.io \
+        | grep -i "catalog, patterns, and blueprints"
+done | wc -l
+
+# If Minikube
+for i in {1..100}; do
+    curl -s -H "Host: devopstoolkitseries.com" \
+        "http://$ISTIO_HOST" \
+        | grep -i "catalog, patterns, and blueprints"
+done | wc -l
+
+#############################
+# Rolling back new releases #
+#############################
+
+helm upgrade devops-toolkit helm \
+    --namespace devops-toolkit \
+    --reuse-values \
+    --set image.tag=2.9.17
+
+kubectl argo rollouts \
+    --namespace devops-toolkit \
+    get rollout devops-toolkit-devops-toolkit \
+    --watch
+
+# Do not run this command
+kubectl argo rollouts \
+    --namespace devops-toolkit \
+    abort devops-toolkit-devops-toolkit
+
+helm upgrade devops-toolkit helm \
+    --namespace devops-toolkit \
+    --reuse-values \
+    --set image.tag=2.9.9
+
+kubectl argo rollouts \
+    --namespace devops-toolkit \
+    get rollout devops-toolkit-devops-toolkit \
+    --watch
+
+############################################################
+# Exploring Prometheus metrics and writing rollout queries #
+############################################################
+
+echo $ISTIO_HOST
+
+# Open a second terminal session.
+
+export ISTIO_HOST=[...]
+
+# If not Minikube
+while true; do
+    curl -I http://devops-toolkit.$ISTIO_HOST.nip.io
+    sleep 1
+done
+
+# If Minikube
+while true; do
+    curl -I -H "Host: devopstoolkitseries.com" \
+        "http://$ISTIO_HOST"
+    sleep 1
+done
+
+# If WSL and `sleep` fails with `sleep: cannot read realtime clock: Invalid argument` (it's a bug in WSL 1, upgrades Ubuntu to 20.04)
+sudo apt-mark hold libc6
+
+# If WSL and `sleep` fails with `sleep: cannot read realtime clock: Invalid argument` (it's a bug in WSL 1, upgrades Ubuntu to 20.04)
+sudo apt -y --fix-broken install
+
+# If WSL and `sleep` fails with `sleep: cannot read realtime clock: Invalid argument` (it's a bug in WSL 1, upgrades Ubuntu to 20.04)
+sudo apt update
+
+# If WSL and `sleep` fails with `sleep: cannot read realtime clock: Invalid argument` (it's a bug in WSL 1, upgrades Ubuntu to 20.04)
+sudo apt -y full-upgrade
+
+# Go back to the first terminal session
+
+helm repo add prometheus \
+    https://prometheus-community.github.io/helm-charts
+
+helm upgrade --install \
+    prometheus prometheus/prometheus \
+    --namespace monitoring \
+    --create-namespace \
+    --wait
+
+kubectl --namespace monitoring \
+    port-forward deployment/prometheus-server \
+    9090 &
+
+open http://localhost:9090
+
+# Prometheus query (uncomment first):
+# istio_requests_total
+
+# Prometheus query (uncomment first):
+# sum(irate(
+#   istio_requests_total{
+#     reporter="source",
+#     destination_service=~"devops-toolkit-devops-toolkit.devops-toolkit.svc.cluster.local"
+#   }[2m]
+# ))
+
+# Prometheus query (uncomment first):
+# sum(irate(
+#   istio_requests_total{
+#     reporter="source",
+#     destination_service=~"devops-toolkit-devops-toolkit.devops-toolkit.svc.cluster.local",
+#     response_code=~"2.*"
+#   }[2m]
+# )) / sum(irate(
+#   istio_requests_total{
+#     reporter="source",
+#     destination_service=~"devops-toolkit-devops-toolkit.devops-toolkit.svc.cluster.local"
+#   }[2m]
+# ))
+
+pkill kubectl
+
+################################
+# Exploring Automated Analysis #
+################################
+
+cat rollout/values-analysis.yaml
+
+cat helm/values.yaml
+
+cat helm/templates/rollout.yaml
+
+kubectl delete namespace devops-toolkit
+
+#################################################
+# Deploying releases with fully automated steps #
+#################################################
+
+# If NOT Minikube
+helm upgrade --install \
+    devops-toolkit helm \
+    --namespace devops-toolkit \
+    --create-namespace \
+    --values rollout/values-analysis.yaml \
+    --set ingress.host=devops-toolkit.$ISTIO_HOST.nip.io \
+    --set image.tag=2.6.2 \
+    --wait
+
+# If Minikube
+helm upgrade --install \
+    devops-toolkit helm \
+    --namespace devops-toolkit \
+    --create-namespace \
+    --values rollout/values-analysis.yaml \
+    --set image.tag=2.6.2 \
+    --wait
+
+kubectl argo rollouts \
+    --namespace devops-toolkit \
+    get rollout devops-toolkit-devops-toolkit \
+    --watch
+
+# Go to the second terminal
+
+# If not Minikube
+while true; do
+    curl -I http://devops-toolkit.$ISTIO_HOST.nip.io/this-does-not-exist
+    sleep 1
+done
+
+# If Minikube
+while true; do
+    curl -I -H "Host: devopstoolkitseries.com" \
+        "http://$ISTIO_HOST/this-does-not-exist"
+    sleep 1
+done
+
+# Go to the first terminal session
+
+helm upgrade devops-toolkit helm \
+    --namespace devops-toolkit \
+    --reuse-values \
+    --set image.tag=2.9.9
+
+kubectl argo rollouts \
+    --namespace devops-toolkit \
+    get rollout devops-toolkit-devops-toolkit \
+    --watch
+
+# Go to the second terminal session
+
+# If NOT Minikube
+while true; do
+    curl -I http://devops-toolkit.$ISTIO_HOST.nip.io
+    sleep 1
+done
+
+# If Minikube
+while true; do
+    curl -I -H "Host: devopstoolkitseries.com" \
+        "http://$ISTIO_HOST"
+    sleep 1
+done
+
+helm upgrade devops-toolkit helm \
+    --namespace devops-toolkit \
+    --reuse-values \
+    --set image.tag=2.9.17
+
+kubectl argo rollouts \
+    --namespace devops-toolkit \
+    get rollout devops-toolkit-devops-toolkit \
+    --watch
+
+# Stop the rollout and loops in both terminals
+
+# Go to the first terminal session
+
+#####################
+# What Happens Now? #
+#####################
+
+kubectl delete namespace devops-toolkit
+
+kubectl delete namespace argo-rollouts
+
+kubectl delete namespace monitoring
+
+cd ..

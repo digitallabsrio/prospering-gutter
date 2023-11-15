@@ -1,0 +1,2 @@
+NAME             URL                                                  READY   REASON
+devops-toolkit   http://devops-toolkit.production.svc.cluster.local   True    

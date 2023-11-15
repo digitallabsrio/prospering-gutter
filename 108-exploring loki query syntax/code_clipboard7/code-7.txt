@@ -1,0 +1,1 @@
+{job="production/go-demo-9-go-demo-9"} |= "ERROR"

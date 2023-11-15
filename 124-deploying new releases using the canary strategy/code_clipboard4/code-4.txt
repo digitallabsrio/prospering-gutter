@@ -1,0 +1,4 @@
+kubectl --namespace devops-toolkit \
+    get virtualservice \
+    devops-toolkit-devops-toolkit \
+    --output yaml

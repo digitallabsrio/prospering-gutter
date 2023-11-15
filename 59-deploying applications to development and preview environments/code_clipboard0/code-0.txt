@@ -1,0 +1,3 @@
+export GH_USER=[...] #replace your gitHub username here 
+
+kubectl create namespace $GH_USER

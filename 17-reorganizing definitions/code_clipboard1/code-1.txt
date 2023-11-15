@@ -1,0 +1,7 @@
+cat \
+    files/backend.tf \
+    files/k8s-control-plane.tf \
+    files/k8s-worker-nodes.tf \
+    files/provider.tf \
+    files/storage.tf \
+    | tee main.tf

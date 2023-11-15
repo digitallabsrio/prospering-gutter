@@ -1,0 +1,2 @@
+goodbye.js
+hello.js

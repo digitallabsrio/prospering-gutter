@@ -1,0 +1,5 @@
+export IMAGE=gcr.io/$PROJECT_ID/devops-toolkit:0.0.1
+
+docker image tag \
+    educative1/devops-toolkit \
+    $IMAGE

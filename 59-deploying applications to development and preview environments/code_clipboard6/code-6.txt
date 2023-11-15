@@ -1,0 +1,2 @@
+NAME                HOSTS                      ADDRESS       PORTS AGE
+go-demo-9-go-demo-9 vfarcic.go-demo-9.acme.com 192.168.64.56 80    85s

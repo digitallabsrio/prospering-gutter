@@ -1,0 +1,2 @@
+kubectl --namespace production delete \
+    --filename devops-toolkit.yaml
